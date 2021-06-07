@@ -1,0 +1,69 @@
+<head>
+	<title>CadastroClientes</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="cadastroClientes.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="cadastroClientes.js"></script>
+</head>
+
+<body>
+<div class="quadro" ng-app="App" ng-controller="Ctrl">
+	<div class="quadroTitulo" >
+		Cadastrar clientes
+	</div>
+	<div class="quadroElemento">
+		<div class="elementoTitulo">Nome</div>
+		<div class="elementoCaixaTexto">
+			 <input type="text"  id="inNome"  name="inNome" ng-model="nomeCliente" class="caixaTexto caixaDados" style="width:300px;">
+		</div>
+	</div>
+	<div class="quadroElemento">
+		<div class="elementoTitulo">Documento</div>
+		<div class="elementoCaixaTexto">
+			 <input type="text" id="inDoc" name="inDoc" ng-model="documentoCliente" class="caixaTexto caixaDados">
+		</div>
+	</div>
+
+	<div id="quadroTelefones" class="quadroElemento" style="height: {{caixaTelefonesHeight}};">
+		<div class="subQuadroExtensivel"  style="height: {{caixaTelefonesHeightExt}};">
+			<div ng-repeat="x in camposTelefone">
+				<div class="subQuadroElemento">
+					<div class="elementoTitulo">{{ x.titulo }}</div>
+					<div class="elementoCaixaTexto">
+						<input type="text" id="{{ x.id }}" name="{{ x.id }}" class="caixaTexto caixaDados" >
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="btAdicionarTelefone" class="botaoAdicao" ng-click="addCamposTelefone()" title="Adicionar mais campos de telefone">+</div>	
+	</div>
+	
+	<div id="quadroEnderecos" class="quadroElemento" style="height: {{caixaEnderecosHeight}};">
+		<div class="subQuadroExtensivel" style="height: {{caixaEnderecosHeightExt}};">
+			<div ng-repeat="y in camposEnderecos">
+					<div class="subQuadroElemento">
+						<div class="elementoTitulo">{{ y.titulo }}</div>
+						<div class="elementoCaixaTexto">
+							<input type="text" id="{{ y.id }}" name="{{ y.id }}" class="caixaTexto caixaDados" >
+						</div>
+					</div>
+			</div>
+		</div>
+		<div id="btAdicionarEndereco" class="botaoAdicao" ng-click="addCamposEndereco()" title="Adicionar mais campos de endereço">+</div>	
+	</div>
+	
+	
+
+	<div id="btCadastrar" class="quadroElemento" style="height: 41px; margin-top: 30px;">
+		<div class="botao" ng-click="cadastrar()" title="Cadastrar {{nomeCliente}}">
+			Cadastrar
+		</div>
+	</div>
+	
+	<div id="mensagemErro" class="quadroElementoErro" ng-bind-html="msgErro" style="color: {{statusColor}}">
+	</div>
+</div>
+	
+	
+</body>
