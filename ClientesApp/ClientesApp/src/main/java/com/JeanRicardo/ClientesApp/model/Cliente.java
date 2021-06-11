@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,7 +23,8 @@ public class Cliente {
     private String sql;
 
     public void cadastrarNovo(String nome, String documento,
-            ArrayList<String> telefones, ArrayList<String> enderecos) throws Exception {
+        
+            List<String> telefones, List<String> enderecos) throws Exception {
 
         c = new Conexao().criarConexao();
 

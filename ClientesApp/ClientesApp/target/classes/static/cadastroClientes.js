@@ -1,9 +1,9 @@
 
-var app = angular.module('myApp', []).config(function($sceProvider) {
+var app = angular.module('App', []).config(function($sceProvider) {
 	$sceProvider.enabled(false);
 });
 
-app.controller('myCtrl', function($scope, $http) {
+app.controller('Ctrl', function($scope, $http) {
 	$scope.nomeCliente = "";
 	$scope.documentoCliente = "";
 	$scope.jsonpronto = "JSONPRONTO";
